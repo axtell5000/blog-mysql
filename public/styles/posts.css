@@ -10,11 +10,11 @@
 }
 
 .post-item {
-  margin: 1rem 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  padding: 1rem;
   background-color: rgb(220, 204, 252);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 1rem 0;
+  padding: 1rem;
 }
 
 .post-item h2,
@@ -27,10 +27,10 @@
 }
 
 .post-actions {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   gap: 1rem;
+  justify-content: center;
 }
 
 .post-actions .btn-alt {
