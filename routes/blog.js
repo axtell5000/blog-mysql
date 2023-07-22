@@ -17,4 +17,18 @@ router.get("/new-post", async (req, res) => {
   res.render("create-post", { authors: authors });
 });
 
+router.post("/posts", async (req, res) => {
+  const data = [
+    req.body.title,
+    req.body.summary,
+    req.body.content,
+    req.body.author,
+  ];
+  await db.query(
+    "INSERT INTO posts (title, summary, body, author_id) VALUES (?)",
+    [data]
+  ); // data needs to be array, will replace question mark. MySql2 package will split into parts, order is important
+  res.redirect("/posts");
+});
+
 module.exports = router;
