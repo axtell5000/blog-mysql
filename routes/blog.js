@@ -1,5 +1,7 @@
 const express = require("express");
 
+const db = require("../data/database");
+
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -10,8 +12,9 @@ router.get("/posts", (req, res) => {
   res.render("posts-list");
 });
 
-router.get("/new-post", (req, res) => {
-  res.render("create-post");
+router.get("/new-post", async (req, res) => {
+  const [authors] = await db.query("SELECT * FROM authors"); // array destructuring here
+  res.render("create-post", { authors: authors });
 });
 
 module.exports = router;
